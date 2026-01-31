@@ -1,16 +1,16 @@
 {
-  "name": "@arifszn/gitprofile",
+  "name": "@ksAvinash/gitprofile",
   "description": "Create an automatic portfolio based on GitHub profile",
   "version": "4.0.0",
   "type": "module",
   "license": "MIT",
-  "author": "arifszn",
+  "author": "ksAvinash",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arifszn/gitprofile.git"
+    "url": "https://github.com/ksAvinash/ksAvinash.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/arifszn/gitprofile/issues"
+    "url": "https://github.com/ksAvinash/ksAvinash.github.io/issues"
   },
   "scripts": {
     "dev": "vite",
