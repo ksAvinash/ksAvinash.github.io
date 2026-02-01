@@ -1,5 +1,14 @@
 export interface SanitizedGithub {
   username: string;
+  token?: string;
+  contributions: SanitizedGithubContributions;
+}
+
+export interface SanitizedGithubContributions {
+  display: boolean;
+  header: string;
+  organizations: Array<string>;
+  limit: number;
 }
 
 export interface SanitizedGitHubProjects {

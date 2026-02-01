@@ -3,6 +3,13 @@
 const CONFIG = {
   github: {
     username: 'ksAvinash', // Your GitHub org/user name. (This is the only required config)
+    token: '', // GitHub personal access token (required for organization contributions)
+    contributions: {
+      display: true, // Display organization contributions?
+      header: 'Organization Contributions',
+      organizations: [], // Leave empty to use your public organizations
+      limit: 6, // How many organizations to display.
+    },
   },
   /**
    * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/ksAvinash/ksAvinash.github.io, set base to '/'.

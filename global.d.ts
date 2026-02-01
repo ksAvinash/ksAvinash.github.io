@@ -3,6 +3,38 @@ interface Github {
    * GitHub org/user name
    */
   username: string;
+
+  /**
+   * GitHub personal access token (required for organization contributions)
+   */
+  token?: string;
+
+  /**
+   * Organization contributions config
+   */
+  contributions?: GitHubContributions;
+}
+
+interface GitHubContributions {
+  /**
+   * Display organization contributions?
+   */
+  display?: boolean;
+
+  /**
+   * Header
+   */
+  header?: string;
+
+  /**
+   * Organization logins to include
+   */
+  organizations?: Array<string>;
+
+  /**
+   * How many organizations to display
+   */
+  limit?: number;
 }
 
 interface GitHubProjects {

@@ -31,6 +31,15 @@ export const getSanitizedConfig = (
     return {
       github: {
         username: config.github.username,
+        token: config?.github?.token,
+        contributions: {
+          display: config?.github?.contributions?.display ?? false,
+          header:
+            config?.github?.contributions?.header ||
+            'Organization Contributions',
+          organizations: config?.github?.contributions?.organizations || [],
+          limit: config?.github?.contributions?.limit || 6,
+        },
       },
       projects: {
         github: {

@@ -28,6 +28,8 @@ import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
+import OrgContributionsCard from './org-contributions-card';
+import { OrgContribution } from '../interfaces/org-contribution';
 
 /**
  * Renders the GitProfile component.
@@ -44,6 +46,9 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
+  const [orgContributions, setOrgContributions] = useState<OrgContribution[]>(
+    [],
+  );
 
   const getGithubProjects = useCallback(
     async (publicRepoCount: number): Promise<GithubProject[]> => {
@@ -95,6 +100,105 @@ const GitProfile = ({ config }: { config: Config }) => {
     ],
   );
 
+  const getOrgContributions = useCallback(async (): Promise<
+    OrgContribution[]
+  > => {
+    try {
+      if (!sanitizedConfig.github.contributions.display) {
+        return [];
+      }
+
+      const token = sanitizedConfig.github.token;
+      if (!token) {
+        return [];
+      }
+
+      let orgLogins =
+        sanitizedConfig.github.contributions.organizations?.filter(Boolean) ||
+        [];
+
+      if (orgLogins.length === 0) {
+        const orgResponse = await axios.get(
+          `https://api.github.com/users/${sanitizedConfig.github.username}/orgs?per_page=100`,
+          {
+            headers: { 'Content-Type': 'application/vnd.github.v3+json' },
+          },
+        );
+
+        orgLogins = orgResponse.data.map((org: { login: string }) => org.login);
+      }
+
+      const limit = sanitizedConfig.github.contributions.limit;
+      const limitedLogins = orgLogins.slice(0, limit);
+
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      };
+
+      const orgDetails = await Promise.all(
+        limitedLogins.map(async (login) => {
+          const response = await axios.post(
+            'https://api.github.com/graphql',
+            {
+              query:
+                'query ($login: String!) { organization(login: $login) { id login avatarUrl url } }',
+              variables: { login },
+            },
+            { headers },
+          );
+
+          return response.data?.data?.organization ?? null;
+        }),
+      );
+
+      const contributions = await Promise.all(
+        orgDetails.map(async (org) => {
+          if (!org?.id) {
+            return null;
+          }
+
+          const response = await axios.post(
+            'https://api.github.com/graphql',
+            {
+              query:
+                'query ($login: String!, $orgId: ID!) { user(login: $login) { contributionsCollection(organizationID: $orgId) { contributionCalendar { totalContributions } } } }',
+              variables: {
+                login: sanitizedConfig.github.username,
+                orgId: org.id,
+              },
+            },
+            { headers },
+          );
+
+          const totalContributions =
+            response.data?.data?.user?.contributionsCollection
+              ?.contributionCalendar?.totalContributions ?? 0;
+
+          return {
+            login: org.login,
+            avatarUrl: org.avatarUrl,
+            url: org.url,
+            totalContributions,
+          } as OrgContribution;
+        }),
+      );
+
+      return (contributions.filter(Boolean) as OrgContribution[]).sort(
+        (a, b) => b.totalContributions - a.totalContributions,
+      );
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }, [
+    sanitizedConfig.github.contributions.display,
+    sanitizedConfig.github.contributions.organizations,
+    sanitizedConfig.github.contributions.limit,
+    sanitizedConfig.github.token,
+    sanitizedConfig.github.username,
+  ]);
+
   const loadData = useCallback(async () => {
     try {
       setLoading(true);
@@ -112,11 +216,17 @@ const GitProfile = ({ config }: { config: Config }) => {
         company: data.company || '',
       });
 
-      if (!sanitizedConfig.projects.github.display) {
-        return;
+      if (sanitizedConfig.projects.github.display) {
+        setGithubProjects(await getGithubProjects(data.public_repos));
+      } else {
+        setGithubProjects([]);
       }
 
-      setGithubProjects(await getGithubProjects(data.public_repos));
+      if (sanitizedConfig.github.contributions.display) {
+        setOrgContributions(await getOrgContributions());
+      } else {
+        setOrgContributions([]);
+      }
     } catch (error) {
       handleError(error as AxiosError | Error);
     } finally {
@@ -125,7 +235,9 @@ const GitProfile = ({ config }: { config: Config }) => {
   }, [
     sanitizedConfig.github.username,
     sanitizedConfig.projects.github.display,
+    sanitizedConfig.github.contributions.display,
     getGithubProjects,
+    getOrgContributions,
   ]);
 
   useEffect(() => {
@@ -246,6 +358,14 @@ const GitProfile = ({ config }: { config: Config }) => {
                       githubProjects={githubProjects}
                       loading={loading}
                       googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
+                    />
+                  )}
+                  {sanitizedConfig.github.contributions.display && (
+                    <OrgContributionsCard
+                      header={sanitizedConfig.github.contributions.header}
+                      limit={sanitizedConfig.github.contributions.limit}
+                      contributions={orgContributions}
+                      loading={loading}
                     />
                   )}
                   {sanitizedConfig.publications.length !== 0 && (
