@@ -135,7 +135,7 @@ As this is a Vite project, you can also host your website to Netlify, Vercel, He
 
 - Finally, visit `http://localhost:5173/gitprofile/` from your browser.
 
-> Alternatively, you can set up and run the project using Docker with **[Vail](https://github.com/arifszn/vail)**, a powerful tool for local development of JavaScript/TypeScript Apps.
+> Alternatively, you can set up and run the project using Docker with **[Vail](https://github.com/ksAvinash/vail)**, a powerful tool for local development of JavaScript/TypeScript Apps.
 
 ## 🎨 Customization
 
@@ -148,12 +148,12 @@ You can leave most of the sections empty if you don't want to display them on yo
 
 const CONFIG = {
   github: {
-    username: 'arifszn', // Your GitHub org/user name. (This is the only required config)
+    username: 'ksAvinash', // Your GitHub org/user name. (This is the only required config)
   },
   /**
-   * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
+  * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/ksAvinash/ksAvinash.github.io, set base to '/'.
    * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
-   * for example your repository is at https://github.com/arifszn/portfolio, then set base to '/portfolio/'.
+  * for example your repository is at https://github.com/ksAvinash/portfolio, then set base to '/portfolio/'.
    */
   base: '/gitprofile/',
   projects: {
@@ -166,12 +166,12 @@ const CONFIG = {
         limit: 8, // How many projects to display.
         exclude: {
           forks: false, // Forked projects will not be displayed if set to true.
-          projects: [], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
+          projects: [], // These projects will not be displayed. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
         },
       },
       manual: {
         // Properties for manually specifying projects
-        projects: ['arifszn/gitprofile', 'arifszn/pandora'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
+        projects: ['ksAvinash/ksAvinash.github.io'], // List of repository names to display. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
       },
     },
     external: {
@@ -201,7 +201,7 @@ const CONFIG = {
   social: {
     linkedin: 'ariful-alam',
     x: 'arif_szn',
-    mastodon: 'arifszn@mastodon.social',
+    mastodon: 'ksAvinash@mastodon.social',
     researchGate: '',
     facebook: '',
     instagram: '',
@@ -211,12 +211,12 @@ const CONFIG = {
     udemy: '',
     dribbble: '',
     behance: '',
-    medium: 'arifszn',
-    dev: 'arifszn',
+    medium: 'ksAvinash',
+    dev: 'ksAvinash',
     stackoverflow: '', // example: '1/jeff-atwood'
     discord: '',
     telegram: '',
-    website: 'https://www.arifszn.com',
+    website: 'https://ksAvinash.github.io',
     phone: '',
     email: 'arifulalamszn@gmail.com',
   },
@@ -301,7 +301,7 @@ const CONFIG = {
   // Display articles from your medium or dev account. (Optional)
   blog: {
     source: 'dev', // medium | dev
-    username: 'arifszn', // to hide blog section, keep it empty
+    username: 'ksAvinash', // to hide blog section, keep it empty
     limit: 3, // How many articles to display. Max is 10.
   },
   googleAnalytics: {
@@ -366,7 +366,7 @@ const CONFIG = {
 
   // Optional Footer. Supports plain text or HTML.
   footer: `Made with <a 
-      class="text-primary" href="https://github.com/arifszn/gitprofile"
+      class="text-primary" href="https://github.com/ksAvinash/ksAvinash.github.io"
       target="_blank"
       rel="noreferrer"
     >GitProfile</a> and ❤️`,
@@ -395,7 +395,7 @@ const CONFIG = {
 ```
 
 <p align="center">
-  <img src="https://github.com/arifszn/gitprofile/assets/45073703/91a2d9e6-67e5-47b4-9752-1881ac0f907f" alt="Theme Dropdown" width="50%">
+  <img src="https://github.com/ksAvinash/ksAvinash.github.io/assets/45073703/91a2d9e6-67e5-47b4-9752-1881ac0f907f" alt="Theme Dropdown" width="50%">
 </p>
 
 You can create your own custom theme by modifying the CSS variables in `src/assets/index.css`. Theme `procyon` is defined as a custom theme.
@@ -459,7 +459,7 @@ const CONFIG = {
 
 GitProfile is PWA enabled. The site can be installed as a Progressive Web App. To turn it off, set `enablePWA` to `false`.
 
-![PWA](https://github.com/arifszn/gitprofile/assets/45073703/9dc7cc5c-4262-4445-a7a5-1e3566ef43fa)
+![PWA](https://github.com/ksAvinash/ksAvinash.github.io/assets/45073703/9dc7cc5c-4262-4445-a7a5-1e3566ef43fa)
 
 ### Avatar and Bio
 
@@ -476,7 +476,7 @@ const CONFIG = {
   social: {
     linkedin: 'ariful-alam',
     x: 'arif_szn',
-    mastodon: 'arifszn@mastodon.social',
+    mastodon: 'ksAvinash@mastodon.social',
     researchGate: '',
     facebook: '',
     instagram: '',
@@ -610,12 +610,12 @@ const CONFIG = {
         limit: 8, // How many projects to display.
         exclude: {
           forks: false, // Forked projects will not be displayed if set to true.
-          projects: [], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
+          projects: [], // These projects will not be displayed. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
         },
       },
       manual: {
         // Properties for manually specifying projects
-        projects: ['arifszn/gitprofile', 'arifszn/pandora'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
+        projects: ['ksAvinash/ksAvinash.github.io'], // List of repository names to display. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
       },
     },
   },
@@ -690,25 +690,25 @@ If you have [medium](https://medium.com) or [dev](https://dev.to) account, you c
 // gitprofile.config.ts
 const CONFIG = {
   // ...
-  blog: { source: 'dev', username: 'arifszn', limit: 5 },
+  blog: { source: 'dev', username: 'ksAvinash', limit: 5 },
 };
 ```
 
-![Blog](https://github.com/arifszn/gitprofile/assets/45073703/410124f2-a3c2-48f1-8ec8-0c6fae74ae3d)
+![Blog](https://github.com/ksAvinash/ksAvinash.github.io/assets/45073703/410124f2-a3c2-48f1-8ec8-0c6fae74ae3d)
 
-The posts are fetched by [blog.js](https://github.com/arifszn/blog.js).
+The posts are fetched by [blog.js](https://github.com/ksAvinash/blog.js).
 
 ## 💖 Support
 
 <p>You can show your support by starring this project. ★</p>
-<a href="https://github.com/arifszn/gitprofile/stargazers">
-  <img src="https://img.shields.io/github/stars/arifszn/gitprofile?style=social" alt="Github Star">
+<a href="https://github.com/ksAvinash/ksAvinash.github.io/stargazers">
+  <img src="https://img.shields.io/github/stars/ksAvinash/ksAvinash.github.io?style=social" alt="Github Star">
 </a>
 
 ## 💡 Contribute
 
-To contribute, see the [Contributing guide](https://github.com/arifszn/gitprofile/blob/main/CONTRIBUTING.md).
+To contribute, see the [Contributing guide](https://github.com/ksAvinash/ksAvinash.github.io/blob/main/CONTRIBUTING.md).
 
 ## 📄 License
 
-[MIT](https://github.com/arifszn/gitprofile/blob/main/LICENSE)
+[MIT](https://github.com/ksAvinash/ksAvinash.github.io/blob/main/LICENSE)

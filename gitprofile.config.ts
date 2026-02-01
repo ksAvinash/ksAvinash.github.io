@@ -5,9 +5,9 @@ const CONFIG = {
     username: 'ksAvinash', // Your GitHub org/user name. (This is the only required config)
   },
   /**
-  * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/ksAvinash/ksAvinash.github.io, set base to '/'.
+   * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/ksAvinash/ksAvinash.github.io, set base to '/'.
    * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
-  * for example your repository is at https://github.com/ksAvinash/portfolio, then set base to '/portfolio/'.
+   * for example your repository is at https://github.com/ksAvinash/portfolio, then set base to '/portfolio/'.
    */
   base: '/',
   projects: {
@@ -39,13 +39,27 @@ const CONFIG = {
           imageUrl: '',
           link: 'https://mygala.in',
         },
+        {
+          title: 'RentMyTent App',
+          description:
+            'Travel gear rental platform (Camping Tents, Trekking Shoes). Integrated delivery partners like Dunzo & Blowhorn via B2B APIs and RazorPay for payments. Stack: Flutter App & AWS Lambda Functions.',
+          imageUrl: '',
+          link: '',
+        },
+        {
+          title: 'Namma Karnataka Tourism App',
+          description:
+            'A comprehensive tourism app showcasing Karnataka\'s top attractions. Awarded "Best Project of the Year - 2017". Achieved a milestone of 30K downloads on the Google Play Store.',
+          imageUrl: '',
+          link: '',
+        },
       ],
     },
   },
   seo: {
     title: 'Avinash Kemparaju | Senior Software Engineer',
     description:
-      'Senior Software Engineer (Backend) with 8+ years of experience architecting scalable, fault-tolerant systems and leading greenfield development initiatives. Focused on cloud architectures, serverless solutions, and API development, optimizing performance and cloud costs. AWS Certified Solutions Architect – Associate.',
+      'Senior Software Engineer (Backend) with 8+ years of experience architecting scalable, fault-tolerant systems. Specialized in end-to-end cloud architectures, serverless solutions, and API development. AWS Certified Solutions Architect – Associate.',
     imageURL: '',
   },
   social: {
@@ -79,7 +93,8 @@ const CONFIG = {
     'Event-Driven Architectures',
     'Autoscaling',
     'API Design',
-    'AWS (EC2, Lambda, EKS, ECS, RDS, DynamoDB, S3, SQS, SNS, EventBridge, Step Functions)',
+    'AI Tools (GitHub Copilot, Windsurf, Grok, MCP Models)',
+    'AWS (EC2, Lambda, EKS, ECS, RDS, DynamoDB, Elasticache, SQS, SNS, S3, EventBridge, Step Functions)',
     'Firebase (Firestore, Functions, Realtime DB, Cloud Messaging)',
     'Terraform',
     'Pulumi',
@@ -91,9 +106,9 @@ const CONFIG = {
     'PostgreSQL',
     'MySQL',
     'DynamoDB',
-    'Redis',
+    'Redis Caching',
     'Python',
-    'Go',
+    'Go (Golang)',
     'Node.js',
     'Dart',
   ],
