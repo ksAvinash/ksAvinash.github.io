@@ -2,52 +2,6 @@ import React, { Fragment } from 'react';
 import { SanitizedExperience } from '../../interfaces/sanitized-config';
 import { skeleton } from '../../utils';
 
-const ListItem = ({
-  time,
-  position,
-  company,
-  companyLink,
-  roles,
-}: {
-  time: React.ReactNode;
-  position?: React.ReactNode;
-  company?: React.ReactNode;
-  companyLink?: string;
-  roles?: Array<{ position: string; from?: string; to?: string }>;
-}) => (
-  <li className="mb-7 ml-4">
-    <div
-      className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
-      style={{ left: '-4.5px' }}
-    ></div>
-    <div className="my-0.5 text-xs">{time}</div>
-    <h3 className="font-semibold">{position}</h3>
-    <div className="mb-4 font-normal">
-      <a href={companyLink} target="_blank" rel="noreferrer">
-        {company}
-      </a>
-    </div>
-    {roles && roles.length > 0 && (
-      <ul className="mt-1 ml-4 list-disc list-outside space-y-1 text-sm text-base-content/80 marker:text-base-content/60">
-        {roles.map((role, index) => (
-          <li key={`${role.position}-${index}`}>
-            <span className="font-medium text-base-content">
-              {role.position}
-            </span>
-            {role.from || role.to ? (
-              <span className="text-xs text-base-content/60">
-                {` (${role.from || ''}${role.from && role.to ? ' - ' : ''}${
-                  role.to || ''
-                })`}
-              </span>
-            ) : null}
-          </li>
-        ))}
-      </ul>
-    )}
-  </li>
-);
-
 const ExperienceCard = ({
   experiences,
   loading,
@@ -59,19 +13,32 @@ const ExperienceCard = ({
     const array = [];
     for (let index = 0; index < 2; index++) {
       array.push(
-        <ListItem
-          key={index}
-          time={skeleton({
-            widthCls: 'w-5/12',
-            heightCls: 'h-4',
-          })}
-          position={skeleton({
-            widthCls: 'w-6/12',
-            heightCls: 'h-4',
-            className: 'my-1.5',
-          })}
-          company={skeleton({ widthCls: 'w-6/12', heightCls: 'h-3' })}
-        />,
+        <li key={index} className="mb-8 ml-2">
+          <div className="flex items-center justify-between">
+            {skeleton({ widthCls: 'w-6/12', heightCls: 'h-4' })}
+            {skeleton({ widthCls: 'w-4/12', heightCls: 'h-3' })}
+          </div>
+          <div className="mt-3 ml-2">
+            <div className="relative border-l border-base-300 border-opacity-30">
+              <div className="ml-4 mb-4">
+                {skeleton({
+                  widthCls: 'w-6/12',
+                  heightCls: 'h-4',
+                  className: 'my-1.5',
+                })}
+                {skeleton({ widthCls: 'w-5/12', heightCls: 'h-3' })}
+              </div>
+              <div className="ml-4">
+                {skeleton({
+                  widthCls: 'w-6/12',
+                  heightCls: 'h-4',
+                  className: 'my-1.5',
+                })}
+                {skeleton({ widthCls: 'w-5/12', heightCls: 'h-3' })}
+              </div>
+            </div>
+          </div>
+        </li>,
       );
     }
 
@@ -90,28 +57,71 @@ const ExperienceCard = ({
           </h5>
         </div>
         <div className="text-base-content">
-          <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
+          <ol className="my-2 mx-4">
             {loading ? (
               renderSkeleton()
             ) : (
               <Fragment>
-                {experiences.map((experience, index) => (
-                  <ListItem
-                    key={index}
-                    time={`${experience.from} - ${experience.to}`}
-                    position={
-                      experience.position ||
-                      experience.roles?.[experience.roles.length - 1]?.position
-                    }
-                    company={experience.company}
-                    companyLink={
-                      experience.companyLink
-                        ? experience.companyLink
-                        : undefined
-                    }
-                    roles={experience.roles}
-                  />
-                ))}
+                {experiences.map((experience, index) => {
+                  const roles =
+                    experience.roles && experience.roles.length > 0
+                      ? experience.roles
+                      : experience.position
+                        ? [
+                            {
+                              position: experience.position,
+                              from: experience.from,
+                              to: experience.to,
+                            },
+                          ]
+                        : [];
+
+                  return (
+                    <li key={index} className="mb-8">
+                      <div className="flex items-center justify-between">
+                        <div className="font-semibold text-base-content">
+                          {experience.companyLink ? (
+                            <a
+                              href={experience.companyLink}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {experience.company}
+                            </a>
+                          ) : (
+                            experience.company
+                          )}
+                        </div>
+                        <div className="text-xs text-base-content/60">
+                          {experience.from} - {experience.to}
+                        </div>
+                      </div>
+
+                      {roles.length > 0 && (
+                        <ol className="relative border-l border-base-300 border-opacity-30 mt-3 ml-2">
+                          {roles.map((role, roleIndex) => (
+                            <li key={`${role.position}-${roleIndex}`} className="ml-4 mb-4">
+                              <div
+                                className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
+                                style={{ left: '-4.5px' }}
+                              ></div>
+                              <div className="text-sm font-semibold text-base-content">
+                                {role.position}
+                              </div>
+                              {(role.from || role.to) && (
+                                <div className="text-xs text-base-content/60">
+                                  {role.from || ''}
+                                  {role.from && role.to ? ' - ' : ''}
+                                  {role.to || ''}
+                                </div>
+                              )}
+                            </li>
+                          ))}
+                        </ol>
+                      )}
+                    </li>
+                  );
+                })}
               </Fragment>
             )}
           </ol>
