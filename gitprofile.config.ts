@@ -103,6 +103,9 @@ const CONFIG = {
   resume: {
     fileUrl: '/Avinash-Kemparaju-Resume.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
+  profile: {
+    bio: 'Senior Backend Developer',
+  },
   skills: [
     'Backend System Design',
     'Microservices',

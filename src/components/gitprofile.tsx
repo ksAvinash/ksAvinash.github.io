@@ -211,7 +211,7 @@ const GitProfile = ({ config }: { config: Config }) => {
       setProfile({
         avatar: data.avatar_url,
         name: data.name || ' ',
-        bio: data.bio || '',
+        bio: sanitizedConfig.profile.bio || data.bio || '',
         location: data.location || '',
         company: data.company || '',
       });

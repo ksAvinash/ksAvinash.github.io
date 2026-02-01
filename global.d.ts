@@ -247,6 +247,13 @@ interface Resume {
   fileUrl?: string;
 }
 
+interface ProfileConfig {
+  /**
+   * Override GitHub bio (role line)
+   */
+  bio?: string;
+}
+
 interface Experience {
   company?: string;
   position?: string;
@@ -398,6 +405,11 @@ interface Config {
    * Resume
    */
   resume?: Resume;
+
+  /**
+   * Profile overrides
+   */
+  profile?: ProfileConfig;
 
   /**
    * Google Analytics config
