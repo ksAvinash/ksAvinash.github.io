@@ -163,6 +163,18 @@ const CONFIG = {
       from: 'Oct 2022',
       to: 'Present',
       companyLink: 'https://www.cisco.com',
+      roles: [
+        {
+          position: 'Software Engineer (Backend)',
+          from: 'Oct 2022',
+          to: 'Sep 2023',
+        },
+        {
+          position: 'Senior Software Engineer (Backend)',
+          from: 'Oct 2023',
+          to: 'Present',
+        },
+      ],
     },
     {
       company: 'Freshworks Inc',

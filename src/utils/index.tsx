@@ -106,7 +106,10 @@ export const getSanitizedConfig = (
             experience.position ||
             experience.from ||
             experience.to,
-        ) || [],
+        ).map((experience) => ({
+          ...experience,
+          roles: experience.roles?.filter((role) => role.position) || [],
+        })) || [],
       certifications:
         config?.certifications?.filter(
           (certification) =>

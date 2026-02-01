@@ -260,6 +260,13 @@ interface Experience {
   from: string;
   to: string;
   companyLink?: string;
+  roles?: Array<ExperienceRole>;
+}
+
+interface ExperienceRole {
+  position: string;
+  from?: string;
+  to?: string;
 }
 
 interface Certification {

@@ -7,13 +7,15 @@ const ListItem = ({
   position,
   company,
   companyLink,
+  roles,
 }: {
   time: React.ReactNode;
   position?: React.ReactNode;
   company?: React.ReactNode;
   companyLink?: string;
+  roles?: Array<{ position: string; from?: string; to?: string }>;
 }) => (
-  <li className="mb-5 ml-4">
+  <li className="mb-7 ml-4">
     <div
       className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
       style={{ left: '-4.5px' }}
@@ -25,6 +27,24 @@ const ListItem = ({
         {company}
       </a>
     </div>
+    {roles && roles.length > 0 && (
+      <ul className="mt-1 ml-4 list-disc list-outside space-y-1 text-sm text-base-content/80 marker:text-base-content/60">
+        {roles.map((role, index) => (
+          <li key={`${role.position}-${index}`}>
+            <span className="font-medium text-base-content">
+              {role.position}
+            </span>
+            {role.from || role.to ? (
+              <span className="text-xs text-base-content/60">
+                {` (${role.from || ''}${role.from && role.to ? ' - ' : ''}${
+                  role.to || ''
+                })`}
+              </span>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+    )}
   </li>
 );
 
@@ -79,13 +99,17 @@ const ExperienceCard = ({
                   <ListItem
                     key={index}
                     time={`${experience.from} - ${experience.to}`}
-                    position={experience.position}
+                    position={
+                      experience.position ||
+                      experience.roles?.[experience.roles.length - 1]?.position
+                    }
                     company={experience.company}
                     companyLink={
                       experience.companyLink
                         ? experience.companyLink
                         : undefined
                     }
+                    roles={experience.roles}
                   />
                 ))}
               </Fragment>

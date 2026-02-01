@@ -88,6 +88,13 @@ export interface SanitizedExperience {
   from: string;
   to: string;
   companyLink?: string;
+  roles?: Array<SanitizedExperienceRole>;
+}
+
+export interface SanitizedExperienceRole {
+  position: string;
+  from?: string;
+  to?: string;
 }
 
 export interface SanitizedCertification {
