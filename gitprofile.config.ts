@@ -41,22 +41,31 @@ const CONFIG = {
       projects: [
         {
           title: 'MyGala Invites',
-          description:
-            'Digital invites platform for events like birthdays, weddings, and housewarming. Flutter apps with a fully serverless AWS backend (Lambda, API Gateway, S3, SNS/SQS, Aurora Serverless). ~1K downloads.',
+          description: [
+            'Digital invites platform for events like birthdays, weddings, and housewarming.',
+            'Flutter apps with a fully serverless AWS backend (Lambda, API Gateway, S3, SNS/SQS, Aurora Serverless).',
+            '~1K downloads.',
+          ],
           imageUrl: '',
           link: 'https://mygala.in',
         },
         {
           title: 'RentMyTent App',
-          description:
-            'Travel gear rental platform (Camping Tents, Trekking Shoes). Integrated delivery partners like Dunzo & Blowhorn via B2B APIs and RazorPay for payments. Stack: Flutter App & AWS Lambda Functions.',
+          description: [
+            'Travel gear rental platform (Camping Tents, Trekking Shoes).',
+            'Integrated delivery partners like Dunzo & Blowhorn via B2B APIs and RazorPay for payments.',
+            'Stack: Flutter App & AWS Lambda Functions.',
+          ],
           imageUrl: '',
           link: '',
         },
         {
           title: 'Namma Karnataka Tourism App',
-          description:
-            'A comprehensive tourism app showcasing Karnataka\'s top attractions. Awarded "Best Project of the Year - 2017". Achieved a milestone of 30K downloads on the Google Play Store.',
+          description: [
+            "A comprehensive tourism app showcasing Karnataka's top attractions.",
+            'Awarded "Best Project of the Year - 2017".',
+            'Achieved a milestone of 30K downloads on the Google Play Store.',
+          ],
           imageUrl: '',
           link: '',
         },

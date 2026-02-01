@@ -109,7 +109,7 @@ interface ExternalProjects {
    */
   projects?: {
     title: string;
-    description?: string;
+    description?: string | Array<string>;
     imageUrl?: string;
     link: string;
   }[];

@@ -112,9 +112,27 @@ const ExternalProjectCard = ({
                       </div>
                     </div>
                   )}
-                  <p className="mt-2 text-base-content text-sm text-justify">
-                    {item.description}
-                  </p>
+                  {item.description && Array.isArray(item.description) ? (
+                    <ul className="mt-2 text-base-content text-sm text-left list-disc list-inside space-y-1">
+                      {item.description.map((detail, detailIndex) => (
+                        <li key={detailIndex}>{detail}</li>
+                      ))}
+                    </ul>
+                  ) : item.description && item.description.includes('\n') ? (
+                    <ul className="mt-2 text-base-content text-sm text-left list-disc list-inside space-y-1">
+                      {item.description
+                        .split('\n')
+                        .map((detail) => detail.trim())
+                        .filter(Boolean)
+                        .map((detail, detailIndex) => (
+                          <li key={detailIndex}>{detail}</li>
+                        ))}
+                    </ul>
+                  ) : (
+                    <p className="mt-2 text-base-content text-sm text-justify">
+                      {item.description}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

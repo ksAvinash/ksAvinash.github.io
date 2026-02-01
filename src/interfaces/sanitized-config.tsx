@@ -30,7 +30,7 @@ export interface SanitizedGitHubProjects {
 
 export interface SanitizedExternalProject {
   title: string;
-  description?: string;
+  description?: string | Array<string>;
   imageUrl?: string;
   link: string;
 }
