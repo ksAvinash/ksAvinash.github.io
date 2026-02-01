@@ -113,13 +113,13 @@ const ExternalProjectCard = ({
                     </div>
                   )}
                   {item.description && Array.isArray(item.description) ? (
-                    <ul className="mt-2 text-base-content text-sm text-left list-disc list-inside space-y-1">
+                    <ul className="mt-2 text-base-content text-sm text-left list-disc list-outside pl-4 space-y-1 marker:text-base-content/70">
                       {item.description.map((detail, detailIndex) => (
                         <li key={detailIndex}>{detail}</li>
                       ))}
                     </ul>
                   ) : item.description && item.description.includes('\n') ? (
-                    <ul className="mt-2 text-base-content text-sm text-left list-disc list-inside space-y-1">
+                    <ul className="mt-2 text-base-content text-sm text-left list-disc list-outside pl-4 space-y-1 marker:text-base-content/70">
                       {item.description
                         .split('\n')
                         .map((detail) => detail.trim())
