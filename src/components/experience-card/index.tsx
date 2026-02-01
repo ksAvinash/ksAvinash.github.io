@@ -121,9 +121,6 @@ const ExperienceCard = ({
                           </ol>
                         )}
                       </li>
-                      {index < experiences.length - 1 && (
-                        <div className="mt-4 mb-6 border-t border-base-300 border-opacity-30" />
-                      )}
                     </Fragment>
                   );
                 })}
