@@ -30,6 +30,7 @@ import Footer from './footer';
 import PublicationCard from './publication-card';
 import OrgContributionsCard from './org-contributions-card';
 import { OrgContribution } from '../interfaces/org-contribution';
+import GithubContributionGraph from './github-contribution-graph';
 
 /**
  * Renders the GitProfile component.
@@ -351,6 +352,10 @@ const GitProfile = ({ config }: { config: Config }) => {
               </div>
               <div className="lg:col-span-2 col-span-1">
                 <div className="grid grid-cols-1 gap-6">
+                  <GithubContributionGraph
+                    username={sanitizedConfig.github.username}
+                    loading={loading}
+                  />
                   {sanitizedConfig.projects.github.display && (
                     <GithubProjectCard
                       header={sanitizedConfig.projects.github.header}
