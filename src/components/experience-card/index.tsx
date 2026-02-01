@@ -77,49 +77,54 @@ const ExperienceCard = ({
                         : [];
 
                   return (
-                    <li key={index} className="mb-8">
-                      <div className="flex items-center justify-between">
-                        <div className="font-semibold text-base-content">
-                          {experience.companyLink ? (
-                            <a
-                              href={experience.companyLink}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {experience.company}
-                            </a>
-                          ) : (
-                            experience.company
-                          )}
+                    <Fragment key={index}>
+                      <li className="mb-6">
+                        <div className="flex items-center justify-between">
+                          <div className="font-semibold text-base-content">
+                            {experience.companyLink ? (
+                              <a
+                                href={experience.companyLink}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                {experience.company}
+                              </a>
+                            ) : (
+                              experience.company
+                            )}
+                          </div>
                         </div>
-                        <div className="text-xs text-base-content/60">
-                          {experience.from} - {experience.to}
-                        </div>
-                      </div>
 
-                      {roles.length > 0 && (
-                        <ol className="relative border-l border-base-300 border-opacity-30 mt-3 ml-2">
-                          {roles.map((role, roleIndex) => (
-                            <li key={`${role.position}-${roleIndex}`} className="ml-4 mb-4">
-                              <div
-                                className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
-                                style={{ left: '-4.5px' }}
-                              ></div>
-                              <div className="text-sm font-semibold text-base-content">
-                                {role.position}
-                              </div>
-                              {(role.from || role.to) && (
-                                <div className="text-xs text-base-content/60">
-                                  {role.from || ''}
-                                  {role.from && role.to ? ' - ' : ''}
-                                  {role.to || ''}
+                        {roles.length > 0 && (
+                          <ol className="relative border-l border-base-300 border-opacity-30 mt-3 ml-2">
+                            {roles.map((role, roleIndex) => (
+                              <li
+                                key={`${role.position}-${roleIndex}`}
+                                className="ml-4 mb-4"
+                              >
+                                <div
+                                  className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
+                                  style={{ left: '-4.5px' }}
+                                ></div>
+                                <div className="text-sm font-semibold text-base-content">
+                                  {role.position}
                                 </div>
-                              )}
-                            </li>
-                          ))}
-                        </ol>
+                                {(role.from || role.to) && (
+                                  <div className="text-xs text-base-content/60">
+                                    {role.from || ''}
+                                    {role.from && role.to ? ' - ' : ''}
+                                    {role.to || ''}
+                                  </div>
+                                )}
+                              </li>
+                            ))}
+                          </ol>
+                        )}
+                      </li>
+                      {index < experiences.length - 1 && (
+                        <div className="mt-4 mb-6 border-t border-base-300 border-opacity-30" />
                       )}
-                    </li>
+                    </Fragment>
                   );
                 })}
               </Fragment>
