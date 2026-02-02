@@ -337,18 +337,6 @@ const GitProfile = ({ config }: { config: Config }) => {
                       experiences={sanitizedConfig.experiences}
                     />
                   )}
-                  {sanitizedConfig.certifications.length !== 0 && (
-                    <CertificationCard
-                      loading={loading}
-                      certifications={sanitizedConfig.certifications}
-                    />
-                  )}
-                  {sanitizedConfig.achievements.length !== 0 && (
-                    <AchievementCard
-                      loading={loading}
-                      achievements={sanitizedConfig.achievements}
-                    />
-                  )}
                   {sanitizedConfig.educations.length !== 0 && (
                     <EducationCard
                       loading={loading}
@@ -394,6 +382,18 @@ const GitProfile = ({ config }: { config: Config }) => {
                         sanitizedConfig.projects.external.projects
                       }
                       googleAnalyticId={sanitizedConfig.googleAnalytics.id}
+                    />
+                  )}
+                  {sanitizedConfig.achievements.length !== 0 && (
+                    <AchievementCard
+                      loading={loading}
+                      achievements={sanitizedConfig.achievements}
+                    />
+                  )}
+                  {sanitizedConfig.certifications.length !== 0 && (
+                    <CertificationCard
+                      loading={loading}
+                      certifications={sanitizedConfig.certifications}
                     />
                   )}
                   {sanitizedConfig.blog.display && (
