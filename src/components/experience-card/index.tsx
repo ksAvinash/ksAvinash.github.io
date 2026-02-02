@@ -80,7 +80,7 @@ const ExperienceCard = ({
                     <Fragment key={index}>
                       <li className="mb-6">
                         <div className="flex items-center justify-between">
-                          <div className="font-semibold text-base-content">
+                          <div className="text-sm font-semibold text-base-content">
                             {experience.companyLink ? (
                               <a
                                 href={experience.companyLink}
