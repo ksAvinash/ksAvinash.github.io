@@ -94,7 +94,7 @@ const ExternalProjectCard = ({
             <div className="w-full">
               <div className="px-4">
                 <div className="text-center w-full">
-                  <h2 className="font-medium text-center opacity-60 mb-2">
+                  <h2 className="text-sm font-semibold text-base-content text-left mb-2">
                     {item.title}
                   </h2>
                   {item.imageUrl && (
