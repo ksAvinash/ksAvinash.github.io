@@ -32,7 +32,7 @@ const CONFIG = {
       },
       manual: {
         // Properties for manually specifying projects
-        projects: ['mygala-in/bk-occasion', 'mygala-in/bk-post', 'mygala-in/bk-asset', 'kcet-mock/fe-web'], // List of repository names to display. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
+        projects: ['mygala-in/bk-occasion', 'mygala-in/bk-post', 'mygala-in/bk-asset', 'kcet-mock/fe-web', 'ksAvinash/NammaKarnataka'], // List of repository names to display. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
       },
     },
     external: {
