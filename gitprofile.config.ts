@@ -21,7 +21,7 @@ const CONFIG = {
     github: {
       display: true, // Display GitHub projects?
       header: 'GitHub Projects',
-      mode: 'automatic', // Mode can be: 'automatic' or 'manual'
+      mode: 'manual', // Mode can be: 'automatic' or 'manual'
       automatic: {
         sortBy: 'stars', // Sort projects by 'stars' or 'updated'
         limit: 6, // How many projects to display.
@@ -32,7 +32,7 @@ const CONFIG = {
       },
       manual: {
         // Properties for manually specifying projects
-        projects: [], // List of repository names to display. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
+        projects: ['mygala-in/bk-occasion', 'mygala-in/bk-post', 'mygala-in/bk-asset', 'kcet-mock/fe-web'], // List of repository names to display. example: ['ksAvinash/my-project1', 'ksAvinash/my-project2']
       },
     },
     external: {
