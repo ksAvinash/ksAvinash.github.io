@@ -276,6 +276,13 @@ interface Certification {
   link?: string;
 }
 
+interface Achievement {
+  title?: string;
+  body?: string;
+  year?: string;
+  link?: string;
+}
+
 interface Education {
   institution?: string;
   degree?: string;
@@ -397,6 +404,11 @@ interface Config {
    * Certifications list
    */
   certifications?: Array<Certification>;
+
+  /**
+   * Achievements list
+   */
+  achievements?: Array<Achievement>;
 
   /**
    * Education list

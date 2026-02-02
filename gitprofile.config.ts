@@ -165,6 +165,31 @@ const CONFIG = {
       link: 'https://www.credly.com',
     },
   ],
+  achievements: [
+    {
+      title: 'WDSE India Mentorship Program@Cisco',
+      year: '2025',
+      body: '1st place for the Mentor-Mentee program and demoed "Getting Started with GitHub Copilot" to SBG.',
+    },
+    {
+      title: 'WDSE Innovation Summit@Cisco',
+      year: '2024',
+      body: '1st place for YouTube Tenant Control feature.',
+    },
+    {
+      title: 'AWS Solutions Architect - Associate',
+      body: 'Certificate validation number: 5ZXRPB221ME1QXWW',
+    },
+    {
+      title: 'Best Performer Award@Jiocinema aka Voot',
+      body: 'For subscription management system & PG integration work.',
+    },
+    {
+      title: 'Best Project of the year',
+      year: '2017',
+      body: 'The Namma Karnataka tourism Android app received the best project in the department.',
+    },
+  ],
   educations: [],
   publications: [],
   // Display articles from your medium or dev account. (Optional)

@@ -115,6 +115,11 @@ export const getSanitizedConfig = (
           (certification) =>
             certification.year || certification.name || certification.body,
         ) || [],
+      achievements:
+        config?.achievements?.filter(
+          (achievement) =>
+            achievement.title || achievement.body || achievement.year,
+        ) || [],
       educations:
         config?.educations?.filter(
           (item) => item.institution || item.degree || item.from || item.to,

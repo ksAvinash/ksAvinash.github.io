@@ -22,6 +22,7 @@ import SkillCard from './skill-card';
 import ExperienceCard from './experience-card';
 import EducationCard from './education-card';
 import CertificationCard from './certification-card';
+import AchievementCard from './achievement-card';
 import { GithubProject } from '../interfaces/github-project';
 import GithubProjectCard from './github-project-card';
 import ExternalProjectCard from './external-project-card';
@@ -340,6 +341,12 @@ const GitProfile = ({ config }: { config: Config }) => {
                     <CertificationCard
                       loading={loading}
                       certifications={sanitizedConfig.certifications}
+                    />
+                  )}
+                  {sanitizedConfig.achievements.length !== 0 && (
+                    <AchievementCard
+                      loading={loading}
+                      achievements={sanitizedConfig.achievements}
                     />
                   )}
                   {sanitizedConfig.educations.length !== 0 && (
