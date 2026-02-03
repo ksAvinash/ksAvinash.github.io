@@ -1,5 +1,7 @@
-import { FALLBACK_IMAGE } from '../../constants';
+import { RiMoonLine, RiSunLine } from 'react-icons/ri';
+import { FALLBACK_IMAGE, LOCAL_STORAGE_KEY_NAME } from '../../constants';
 import { Profile } from '../../interfaces/profile';
+import { SanitizedThemeConfig } from '../../interfaces/sanitized-config';
 import { skeleton } from '../../utils';
 import LazyImage from '../lazy-image';
 
@@ -8,6 +10,9 @@ interface AvatarCardProps {
   loading: boolean;
   avatarRing: boolean;
   resumeFileUrl?: string;
+  theme: string;
+  setTheme: (theme: string) => void;
+  themeConfig: SanitizedThemeConfig;
 }
 
 /**
@@ -16,6 +21,9 @@ interface AvatarCardProps {
  * @param loading - A boolean indicating if the profile is loading.
  * @param avatarRing - A boolean indicating if the avatar should have a ring.
  * @param resumeFileUrl - The URL of the resume file.
+ * @param theme - The current theme.
+ * @param setTheme - The setter for theme.
+ * @param themeConfig - The theme configuration.
  * @returns JSX element representing the AvatarCard.
  */
 const AvatarCard: React.FC<AvatarCardProps> = ({
@@ -23,9 +31,50 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
   loading,
   avatarRing,
   resumeFileUrl,
+  theme,
+  setTheme,
+  themeConfig,
 }): React.JSX.Element => {
+  const toggleTheme = () => {
+    const preferredDark = theme === 'dark';
+    const nextTheme = preferredDark ? 'light' : 'dark';
+    const resolvedTheme = themeConfig.themes.includes(nextTheme)
+      ? nextTheme
+      : themeConfig.defaultTheme;
+
+    document.documentElement.setAttribute('data-theme', resolvedTheme);
+
+    typeof window !== 'undefined' &&
+      localStorage.setItem(LOCAL_STORAGE_KEY_NAME, resolvedTheme);
+
+    setTheme(resolvedTheme);
+  };
+
+  const showToggle = themeConfig.themes.includes('light') ||
+    themeConfig.themes.includes('dark');
+
   return (
-    <div className="card shadow-lg card-sm bg-base-100">
+    <div className="card shadow-lg card-sm bg-base-100 relative">
+      {showToggle && (
+        <div className="absolute top-3 right-3">
+          {loading ? (
+            skeleton({ widthCls: 'w-8', heightCls: 'h-8', shape: 'rounded' })
+          ) : (
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="btn btn-ghost btn-sm"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <RiSunLine className="w-4 h-4" />
+              ) : (
+                <RiMoonLine className="w-4 h-4" />
+              )}
+            </button>
+          )}
+        </div>
+      )}
       <div className="grid place-items-center py-8">
         {loading || !profile ? (
           <div className="avatar opacity-90">
