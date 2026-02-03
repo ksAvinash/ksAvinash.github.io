@@ -37,7 +37,7 @@
 
 **Features:**
 
-✓ [Easy to Setup](#-installation--setup)  
+✓ [Easy to Setup](#-quick-start-fork--customize)  
 ✓ [37 Themes](#themes)  
 ✓ [Google Analytics](#google-analytics)  
 ✓ [Hotjar](#hotjar)  
@@ -59,16 +59,9 @@ To view a live example, **[click here](https://ksAvinash.github.io)**.
   <img src="https://github.com/ksAvinash/ksAvinash.github.io/assets/45073703/406e8368-415a-42ef-89c5-d43cc8bbeb19" alt="Themes">
 </p>
 
-## 🛠 Installation & Setup
+## 🛠 Quick Start (Fork & Customize)
 
-There are two ways to use **GitProfile**. Use any.
-
-- [Forking this repo _(recommended)_](#forking-this-repo)
-- [Setting up locally](#setting-up-locally)
-
-### Forking this repo
-
-These instructions will get you a copy of the project and deploy your portfolio online using GitHub Pages!
+These instructions will get you a copy of the project and deploy your portfolio online using GitHub Pages.
 
 - **Fork repo:** Click [here](https://github.com/ksAvinash/ksAvinash.github.io/fork) to fork the repo so you have your own project to customize. A "fork" is a copy of a repository.
 - **Rename repo:**
@@ -78,9 +71,8 @@ These instructions will get you a copy of the project and deploy your portfolio 
 
   ![Workflows](https://github.com/ksAvinash/ksAvinash.github.io/assets/45073703/7e82f7d4-900c-4cb9-83f9-bcaa1ca2b910)
 
-- **Base Value:** Open `gitprofile.config.ts`, and change `base`'s value.
+- **Base value:** Open `gitprofile.config.ts`, and change `base`'s value.
   - If you are deploying to `https://<USERNAME>.github.io`, set `base` to `'/'`.
-
   - If you are deploying to `https://<USERNAME>.github.io/<REPO_NAME>` (e.g. `https://<USERNAME>.github.io/portfolio`), then set `base` to `'/<REPO_NAME>/'` (e.g. `'/portfolio/'`).
 
   ```ts
@@ -112,36 +104,11 @@ As this is a Vite project, you can also host your website to Netlify, Vercel, He
 
 [**Not working?**](https://github.com/ksAvinash/ksAvinash.github.io/discussions/548)
 
-### Setting up locally
-
-- Clone the project and change directory.
-
-  ```shell
-  git clone https://github.com/ksAvinash/ksAvinash.github.io.git
-  cd ksAvinash.github.io
-  ```
-
-- Install dependencies.
-
-  ```shell
-  npm install
-  ```
-
-- Run dev server.
-
-  ```shell
-  npm run dev
-  ```
-
-- Finally, visit `http://localhost:5173/gitprofile/` from your browser.
-
-> Alternatively, you can set up and run the project using Docker with **[Vail](https://github.com/ksAvinash/vail)**, a powerful tool for local development of JavaScript/TypeScript Apps.
-
 ## 🎨 Customization
 
-All the magic happens in the file `gitprofile.config.ts`. Open it and modify it according to your preference.
+All the magic happens in the file `gitprofile.config.ts`. Open it and update the values to match your profile and preferences.
 
-You can leave most of the sections empty if you don't want to display them on your portfolio.
+You can leave most sections empty if you don't want to display them on your portfolio.
 
 ```ts
 // gitprofile.config.ts
@@ -197,9 +164,9 @@ const CONFIG = {
       ],
     },
   },
-  seo: { title: 'Portfolio of Ariful Alam', description: '', imageURL: '' },
+  seo: { title: 'Portfolio of Avinash Alam', description: '', imageURL: '' },
   social: {
-    linkedin: 'ariful-alam',
+    linkedin: 'avinash-alam',
     x: 'arif_szn',
     mastodon: 'ksAvinash@mastodon.social',
     researchGate: '',
@@ -218,7 +185,7 @@ const CONFIG = {
     telegram: '',
     website: 'https://ksAvinash.github.io',
     phone: '',
-    email: 'arifulalamszn@gmail.com',
+    email: 'avinash@gmail.com',
   },
   resume: {
     fileUrl:
@@ -451,7 +418,7 @@ You can customize the meta tags for SEO in `seo`.
 // gitprofile.config.ts
 const CONFIG = {
   // ...
-  seo: { title: 'Portfolio of Ariful Alam', description: '', imageURL: '' },
+  seo: { title: 'Portfolio of Avinash Kemparaju', description: '', imageURL: '' },
 };
 ```
 
@@ -474,8 +441,8 @@ You can link your social media services you're using, including LinkedIn, X, Mas
 const CONFIG = {
   // ...
   social: {
-    linkedin: 'ariful-alam',
-    x: 'arif_szn',
+    linkedin: 'ksavinash22',
+    x: '',
     mastodon: 'ksAvinash@mastodon.social',
     researchGate: '',
     facebook: '',
@@ -704,11 +671,3 @@ The posts are fetched by [blog.js](https://github.com/ksAvinash/blog.js).
 <a href="https://github.com/ksAvinash/ksAvinash.github.io/stargazers">
   <img src="https://img.shields.io/github/stars/ksAvinash/ksAvinash.github.io?style=social" alt="Github Star">
 </a>
-
-## 💡 Contribute
-
-To contribute, see the [Contributing guide](https://github.com/ksAvinash/ksAvinash.github.io/blob/main/CONTRIBUTING.md).
-
-## 📄 License
-
-[MIT](https://github.com/ksAvinash/ksAvinash.github.io/blob/main/LICENSE)
